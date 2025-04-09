@@ -43,7 +43,7 @@ if __name__ == "__main__" :
     else:
         st.empty()
         st.markdown("<h2 style='text-align: center;'>Welcome to Weights tool</h2>", unsafe_allow_html=True)
-        st.markdown("<h2 style='text-align: center;'>Choose factors values 😎 😎 😎</h2>", unsafe_allow_html=True)
+        st.markdown("<h2 style='text-align: center;'>Choose factors values of your task 😎 😎 😎</h2>", unsafe_allow_html=True)
 
         col1, col_space_1, col2, col_space_2, col3, col_space_3, = st.columns([1,0.5,1,0.5,1,0.5])
         
