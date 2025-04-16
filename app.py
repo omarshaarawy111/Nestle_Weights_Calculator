@@ -9,7 +9,7 @@ valid_Db = {
 }
 
 points_weights= {
-    "Epic": 5,
+    "Epic Task": 5,
     "Campaign page creation": 4,
     "New page with built-in Drupal components": 4,
     "Syncing on Smart Recipe Hub": 4,
