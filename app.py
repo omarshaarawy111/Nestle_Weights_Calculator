@@ -11,9 +11,9 @@ valid_Db = {
 points_weights= {
     "Campaign page creation": 4,
     "New page with built-in Drupal components": 4,
-    "Issue fixing at CMS level (Dev team)": 4,
     "Syncing on Smart Recipe Hub": 4,
     "Qualifio - ID integration on page level": 4,
+    "Issue fixing at CMS level (Dev team)": 3,
     "New page from a template (pre-defined layout with set of components)": 3,
     "Page layout update (adding/modifying/removing page sections)": 3,
     "Coordination of rollouts of new content with the markets": 3,
