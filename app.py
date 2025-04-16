@@ -8,8 +8,38 @@ valid_Db = {
     "web":"1234",  
 }
 
+points_weights= {
+    "Campaign page creation": 4,
+    "New page with built-in Drupal components": 4,
+    "Issue fixing at CMS level (Dev team)": 4,
+    "Syncing on Smart Recipe Hub": 4,
+    "Qualifio - ID integration on page level": 4,
+    "New page from a template (pre-defined layout with set of components)": 3,
+    "Page layout update (adding/modifying/removing page sections)": 3,
+    "Coordination of rollouts of new content with the markets": 3,
+    "Products and brand products updates": 3,
+    "Terms and Condition/Privacy Policy/Copyright page creations/updates for the websites": 3,
+    "Recipe sync": 3,
+    "Image optimization at CMS level": 3,
+    "Navigation menu updates (add/remove/re-order sections, updating links)": 3,
+    "Existing categories, filters updates (add/remove/re-order)": 3,
+    "Adimo ID updates for products": 3,
+    "Update/ upload of new content using existing Drupal components": 2,
+    "Page content update (copy, images)": 2,
+    "Archive/remove a page": 2,
+    "Press Release content upload": 2,
+    "Upload, remove images from a page": 2,
+    "Simple resizing, compressing, light Photoshop adjustments (brightness/contrast level)": 2,
+    "“Buy now” solution on-page setup (Adimo, Fusepump)": 1,
+    "Update image details (title, alt text)": 1,
+    "Light Photoshop adjustments": 1
+}
+
 def authenticate_user(email, password):
     return valid_Db.get(email) == password
+
+def complexity_value(key):
+    return points_weights.get(key)
 
 if __name__ == "__main__" :
     st.set_page_config(
@@ -48,23 +78,23 @@ if __name__ == "__main__" :
         col1, col_space_1, col2, col_space_2, col3, col_space_3, = st.columns([1,0.5,1,0.5,1,0.5])
         
         with col1:
-            st.markdown("<h3 style='text-align: center;'>Time</h3>", unsafe_allow_html=True)
-            time_factor = st.selectbox("Time", list(range(1, 6)), key='time', label_visibility="collapsed")
+            st.markdown("<h3 style='text-align: center;'>Complexity</h3>", unsafe_allow_html=True)
+            complexity_factor = st.selectbox("Complexity", points_weights.keys(), key='comp', label_visibility="collapsed")
         
         with col2:
+            st.markdown("<h3 style='text-align: center;'>Time</h3>", unsafe_allow_html=True)
+            time_factor = st.selectbox("Time", list(range(1, 6)), key='time', label_visibility="collapsed") 
+            
+        with col3:
             st.markdown("<h3 style='text-align: center;'>Uncertainty</h3>", unsafe_allow_html=True)
             uncertainty_factor = st.selectbox("Uncertainty", list(range(1, 6)), key='cert', label_visibility="collapsed")
-        
-        with col3:
-            st.markdown("<h3 style='text-align: center;'>Complexity</h3>", unsafe_allow_html=True)
-            complexity_factor = st.selectbox("Complexity", list(range(1, 6)), key='comp', label_visibility="collapsed")  
 
         col1, col2, col3 = st.columns([1,2,1])
         with col2:
             calc_button = st.button("Calculate", use_container_width=True) 
         if calc_button:
             factors = []
-            lst = [time_factor, uncertainty_factor, complexity_factor]
+            lst = [time_factor, uncertainty_factor, complexity_value(complexity_factor)]
             for i in lst:
                 factors.append(i)
             median_value = sta.median(factors)
@@ -73,5 +103,3 @@ if __name__ == "__main__" :
         st.markdown(f"<h4 style='text-align: center;font-size:22px'>Made with ❤️ by Web and Search team (NBS Cairo)</h4>", unsafe_allow_html=True)
         st.markdown(f"<h4 style='text-align: center;font-size:16px'>Authority : Omar Shaarawy - Moody Adel</h4>", unsafe_allow_html=True)
         st.markdown(f"<h4 style='text-align: center;font-size:16px'>Version 1.0.0 Beta</h4>", unsafe_allow_html=True)
-
-    
