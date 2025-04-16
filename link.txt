@@ -1,1 +1,1 @@
-https://nestle-performance-eff7vb5zzrpjbyby23hgwg.streamlit.app/
+https://nestleweightscalculator.streamlit.app/
