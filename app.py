@@ -27,7 +27,7 @@ if __name__ == "__main__" :
         ''',
         unsafe_allow_html=True)
         
-        st.markdown('<h1 style="text-align: center; color:#996026; font-size:28px;">Weights Calculator</h1>', unsafe_allow_html=True)
+        st.markdown('<h1 style="text-align: center;  font-size:28px;">Weights Calculator</h1>', unsafe_allow_html=True)
         
         email = st.text_input("Email")
         password = st.text_input("Password", type="password")
