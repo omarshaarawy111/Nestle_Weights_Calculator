@@ -102,6 +102,8 @@ if __name__ == "__main__" :
             for i in lst:
                 factors.append(i)
             median_value = sta.median(factors)
+            if isinstance(median_value, float):
+                median_value = int(np.ceil(median_value))
             st.markdown(f"<h4 style='text-align: center;font-size:25px'>Weight : {median_value}</h4>", unsafe_allow_html=True)
         
         st.markdown(f"<h4 style='text-align: center;font-size:22px'>Made with ❤️ by Web and Search team (NBS Cairo)</h4>", unsafe_allow_html=True)
