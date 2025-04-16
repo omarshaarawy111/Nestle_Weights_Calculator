@@ -75,17 +75,21 @@ if __name__ == "__main__" :
         st.markdown("<h2 style='text-align: center;'>Welcome to Weights tool</h2>", unsafe_allow_html=True)
         st.markdown("<h2 style='text-align: center;'>Choose factors values of your task 😎 😎 😎</h2>", unsafe_allow_html=True)
 
-        col1, col_space_1, col2, col_space_2, col3, col_space_3, = st.columns([1,0.5,1,0.5,1,0.5])
-        
+        col1, col_space_1, col2, col_space_2, col3, col_space_3, col4, colo_space_4 = st.columns([1,0.5,1,0.5,1,0.5,1,0.5])
+
         with col1:
+            st.markdown("<h3 style='text-align: center;'>Task type</h3>", unsafe_allow_html=True)
+            task_factor = st.selectbox("Task", list(range(1, 6)), key='tsk', label_visibility="collapsed")
+            
+        with col2:
             st.markdown("<h3 style='text-align: center;'>Complexity</h3>", unsafe_allow_html=True)
             complexity_factor = st.selectbox("Complexity", points_weights.keys(), key='comp', label_visibility="collapsed")
         
-        with col2:
+        with col3:
             st.markdown("<h3 style='text-align: center;'>Time</h3>", unsafe_allow_html=True)
             time_factor = st.selectbox("Time", list(range(1, 6)), key='time', label_visibility="collapsed") 
             
-        with col3:
+        with col4:
             st.markdown("<h3 style='text-align: center;'>Uncertainty</h3>", unsafe_allow_html=True)
             uncertainty_factor = st.selectbox("Uncertainty", list(range(1, 6)), key='cert', label_visibility="collapsed")
 
@@ -94,7 +98,7 @@ if __name__ == "__main__" :
             calc_button = st.button("Calculate", use_container_width=True) 
         if calc_button:
             factors = []
-            lst = [time_factor, uncertainty_factor, complexity_value(complexity_factor)]
+            lst = [complexity_value(complexity_factor), task_factor, time_factor, uncertainty_factor]
             for i in lst:
                 factors.append(i)
             median_value = sta.median(factors)
