@@ -79,11 +79,11 @@ if __name__ == "__main__" :
 
         with col1:
             st.markdown("<h3 style='text-align: center;'>Task type</h3>", unsafe_allow_html=True)
-            task_factor = st.selectbox("Task", list(range(1, 6)), key='tsk', label_visibility="collapsed")
+            complexity_factor = st.selectbox("Complexity", points_weights.keys(), key='tsk', label_visibility="collapsed")
             
         with col2:
             st.markdown("<h3 style='text-align: center;'>Complexity</h3>", unsafe_allow_html=True)
-            complexity_factor = st.selectbox("Complexity", points_weights.keys(), key='comp', label_visibility="collapsed")
+            task_factor = st.selectbox("Task", list(range(1, 6)), key='comp', label_visibility="collapsed")
         
         with col3:
             st.markdown("<h3 style='text-align: center;'>Time</h3>", unsafe_allow_html=True)
